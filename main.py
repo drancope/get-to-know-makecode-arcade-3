@@ -1,10 +1,11 @@
-controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
-    mySprite.startEffect(effects.fire, randint(100, 600))
-})
-let mySprite : Sprite = null
-scene.setBackgroundColor(8)
+def on_a_pressed():
+    mySprite.start_effect(effects.fire, randint(100, 600))
+controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
+
+mySprite: Sprite = None
+scene.set_background_color(8)
 game.splash("Tela marinera")
-mySprite = sprites.create(img`
+mySprite = sprites.create(img("""
         . . . . . . f f f f . . . . . . 
             . . . . f f f 2 2 f f f . . . . 
             . . . f f f 2 2 2 2 f f f . . . 
@@ -21,4 +22,5 @@ mySprite = sprites.create(img`
             . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
             . . . . . f f f f f f . . . . . 
             . . . . . f f . . f f . . . . .
-    `, SpriteKind.Player)
+    """),
+    SpriteKind.player)
